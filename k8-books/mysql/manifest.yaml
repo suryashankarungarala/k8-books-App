@@ -2,7 +2,7 @@
 # kind: ConfigMap
 # metadata:
 #   name: mysql
-#   namespace: roboshop
+#   namespace: books
 # data:
 #   MYSQL_HOST: "mysql"
 #   #MYSQL_USER: "root"
@@ -13,7 +13,7 @@
 # kind: Secret
 # metadata:
 #   name: mysql
-#   namespace: roboshop
+#   namespace: books
 # type: Opaque
 # data:
 #   MYSQL_ROOT_PASSWORD: cm9vdA==
@@ -22,23 +22,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
-  namespace: roboshop
+  namespace: books
   labels: # these labels are deployment labels
     app: mysql
-    project: roboshop
+    project: books
     tier: db
 spec:
   replicas: 1
   selector:
     matchLabels: # these labels are used to find the pods
       app: mysql
-      project: roboshop
+      project: books
       tier: db
   template:
     metadata:
       labels: # these labels are pod labels
         app: mysql
-        project: roboshop
+        project: books
         tier: db
     spec:
       containers:
@@ -55,11 +55,11 @@ spec:
 # kind: Service
 # metadata:
 #   name: mysql
-#   namespace: roboshop
+#   namespace: books
 # spec:
 #   selector:
 #     app: mysql
-#     project: roboshop
+#     project: books
 #     tier: db
 #   ports:
 #   - protocol: TCP
