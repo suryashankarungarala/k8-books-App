@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: mysql
-    project: roboshop
+    project: books
     tier: db
   ports:
   - protocol: TCP
